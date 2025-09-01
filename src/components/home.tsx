@@ -254,6 +254,78 @@ const Home = () => {
                   attention.
                 </p>
               </div>
+
+              {/* Featured: Long YouTube Videos (Be Masculine) - Primary view */}
+              <h3 className="text-xl font-semibold mb-4 text-center">
+                Featured: Be Masculine (Long Videos)
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                {[
+                  "https://www.youtube.com/embed/zIacPXe-uss",
+                  "https://www.youtube.com/embed/hFZZn3qh16Q",
+                  "https://www.youtube.com/embed/5vIqh9UhfWw",
+                ].map((embed, idx) => (
+                  <Card
+                    key={`yt-${idx}`}
+                    className="overflow-hidden hover:shadow-lg transition-shadow"
+                  >
+                    <div className="aspect-video w-full overflow-hidden bg-[#F9F9F9]">
+                      <iframe
+                        src={embed}
+                        title={`Featured video ${idx + 1}`}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                    <CardContent className="p-4">
+                      <h3 className="font-semibold mb-2">
+                        Be Masculine — Long Video {idx + 1}
+                      </h3>
+                      <p className="text-sm text-[#2B2B2B]">
+                        Primary featured video.
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              {/* Short Videos edited for Clients */}
+              <h3 className="text-xl font-semibold mb-4 text-center">
+                Short Videos edited for Clients
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                {[
+                  "https://res.cloudinary.com/dv5kwhrj9/video/upload/v1756575514/Captains_shield_bwqfee.mp4",
+                  "https://res.cloudinary.com/dv5kwhrj9/video/upload/v1756575586/hulk_before_vs_After_ctxjgb.mp4",
+                  "https://res.cloudinary.com/dv5kwhrj9/video/upload/v1756575670/Achieve_anything_kxprfv.mp4",
+                ].map((src, idx) => (
+                  <Card
+                    key={`short-${idx}`}
+                    className="overflow-hidden hover:shadow-lg transition-shadow"
+                  >
+                    <div className="aspect-[9/16] w-full overflow-hidden bg-[#F9F9F9]">
+                      <video
+                        src={src}
+                        controls
+                        className="w-full h-full object-cover"
+                        preload="metadata"
+                      />
+                    </div>
+                    <CardContent className="p-4">
+                      <h3 className="font-semibold mb-2">
+                        Short Video {idx + 1}
+                      </h3>
+                      <p className="text-sm text-[#2B2B2B]">
+                        Edited for clients.
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              {/* Existing thumbnails (kept below the new featured and short videos) */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
                   "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360123/video_2_gsdltn.png",
@@ -263,7 +335,7 @@ const Home = () => {
                   "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360087/masculine_2_u3eaof.png",
                 ].map((src, idx) => (
                   <Card
-                    key={idx}
+                    key={`thumb-${idx}`}
                     className="overflow-hidden hover:shadow-lg transition-shadow"
                   >
                     <div className="aspect-video w-full overflow-hidden bg-[#F9F9F9]">
@@ -308,7 +380,7 @@ const Home = () => {
                     key={idx}
                     className="overflow-hidden hover:shadow-lg transition-shadow"
                   >
-                    <div className="aspect-video w-full overflow-hidden bg-[#F9F9F9]">
+                    <div className="aspect-square w-full overflow-hidden bg-[#F9F9F9]">
                       <img
                         src={src}
                         alt={`Image editing ${idx + 1}`}
@@ -497,7 +569,7 @@ const Home = () => {
                           ].map((src, i) => (
                             <div
                               key={i}
-                              className="aspect-square overflow-hidden rounded-md bg-[#F9F9F9]"
+                              className="aspect-video overflow-hidden rounded-md bg-[#F9F9F9]"
                             >
                               <img
                                 src={src}
@@ -519,14 +591,25 @@ const Home = () => {
               <Carousel className="w-full">
                 <CarouselContent>
                   {[
-                    "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360087/masculine_2_u3eaof.png",
-                    "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756359854/Untitled_design_5_aekv1g.png",
-                    "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360086/masculine_1_seawrk.png",
-                  ].map((src, i) => (
-                    <CarouselItem key={i}>
-                      <div className="aspect-video w-full overflow-hidden bg-[#F9F9F9]">
+                    {
+                      src: "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360086/masculine_1_seawrk.png",
+                      aspect: "video",
+                    },
+                    {
+                      src: "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756359854/Untitled_design_5_aekv1g.png",
+                      aspect: "square",
+                    },
+                    {
+                      src: "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360087/masculine_2_u3eaof.png",
+                      aspect: "video",
+                    },
+                  ].map((item, i) => (
+                    <CarouselItem key={`bm-img-${i}`}>
+                      <div
+                        className={`${item.aspect === "square" ? "aspect-square" : "aspect-video"} w-full overflow-hidden bg-[#F9F9F9]`}
+                      >
                         <img
-                          src={src}
+                          src={item.src}
                           alt={`Be Masculine image ${i + 1}`}
                           className="w-full h-full object-cover"
                         />
@@ -606,36 +689,50 @@ const Home = () => {
                         </div>
                       </div>
                       <div>
-                        <h4 className="font-semibold mb-2">Highlights</h4>
-                        <ul className="list-disc pl-5 text-sm text-[#2B2B2B] space-y-1">
-                          <li>
-                            Thumbnail system with repeatable grids and color
-                            accents
-                          </li>
-                          <li>Short-form title card presets for consistency</li>
-                          <li>
-                            Motion-safe typography and aspect-ratio responsive
-                            layouts
-                          </li>
-                        </ul>
-                      </div>
-                      <div>
                         <h4 className="font-semibold mb-3">Gallery</h4>
+                        <div className="grid grid-cols-1 gap-3 mb-6">
+                          {[
+                            "https://www.youtube.com/embed/zIacPXe-uss",
+                            "https://www.youtube.com/embed/hFZZn3qh16Q",
+                            "https://www.youtube.com/embed/5vIqh9UhfWw",
+                          ].map((embed, idx) => (
+                            <div
+                              key={`bm-long-${idx}`}
+                              className="aspect-video overflow-hidden rounded-md bg-[#F9F9F9]"
+                            >
+                              <iframe
+                                src={embed}
+                                title={`Be Masculine long video embed ${idx + 1}`}
+                                className="w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerPolicy="strict-origin-when-cross-origin"
+                                allowFullScreen
+                              ></iframe>
+                            </div>
+                          ))}
+                        </div>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                           {[
-                            "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360087/masculine_2_u3eaof.png",
-                            "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756359854/Untitled_design_5_aekv1g.png",
-                            "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360086/masculine_1_seawrk.png",
-                            "https://images.unsplash.com/photo-1475721045328-a94d8e71f3a1?w=600&q=80",
-                            "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=600&q=80",
-                          ].map((src, i) => (
+                            {
+                              src: "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360086/masculine_1_seawrk.png",
+                              aspect: "video",
+                            },
+                            {
+                              src: "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756359854/Untitled_design_5_aekv1g.png",
+                              aspect: "square",
+                            },
+                            {
+                              src: "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360087/masculine_2_u3eaof.png",
+                              aspect: "video",
+                            },
+                          ].map((item, idx) => (
                             <div
-                              key={i}
-                              className="aspect-square overflow-hidden rounded-md bg-[#F9F9F9]"
+                              key={`bm-img-${idx}`}
+                              className={`${item.aspect === "square" ? "aspect-square" : "aspect-video"} overflow-hidden rounded-md bg-[#F9F9F9]`}
                             >
                               <img
-                                src={src}
-                                alt={`Be Masculine gallery ${i + 1}`}
+                                src={item.src}
+                                alt={`Be Masculine image ${idx + 1}`}
                                 className="w-full h-full object-cover"
                               />
                             </div>
