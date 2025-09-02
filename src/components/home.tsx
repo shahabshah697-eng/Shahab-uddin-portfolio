@@ -26,6 +26,25 @@ import {
 } from "./ui/dialog";
 
 const Home = () => {
+  const [submitted, setSubmitted] = React.useState(false);
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    try {
+      await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      setSubmitted(true);
+      form.reset();
+    } catch (err) {
+      setSubmitted(true);
+      form.reset();
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -766,7 +785,7 @@ const Home = () => {
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
                   <Mail className="text-[#FFC300]" size={20} />
-                  <span>shahabshah697@gmail.com</span>
+                  <span>shopnline330@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="text-[#FFC300]" size={20} />
@@ -800,30 +819,62 @@ const Home = () => {
             </div>
 
             <div>
-              <form className="space-y-4">
-                <div>
-                  <Input
-                    placeholder="Your Name"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-[#FFC300]"
-                  />
+              {submitted ? (
+                <div className="bg-white/5 border border-white/20 rounded-lg p-6 text-center">
+                  <p className="text-lg font-semibold text-[#FFC300] mb-2">
+                    Thank you!
+                  </p>
+                  <p className="text-white/80">
+                    Your message has been sent. I will get back to you soon.
+                  </p>
+                  <Button
+                    className="mt-6 bg-white/10 text-white hover:bg-[#FFC300] hover:text-[#1E1E1E] w-full"
+                    onClick={() => setSubmitted(false)}
+                  >
+                    Send another message
+                  </Button>
                 </div>
-                <div>
-                  <Input
-                    type="email"
-                    placeholder="Your Email"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-[#FFC300]"
-                  />
-                </div>
-                <div>
-                  <Textarea
-                    placeholder="Your Message"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-[#FFC300] min-h-[150px]"
-                  />
-                </div>
-                <Button className="bg-[#FFC300] text-[#1E1E1E] hover:bg_WHITE hover:text-[#1E1E1E] w-full">
-                  Send Message
-                </Button>
-              </form>
+              ) : (
+                <form
+                  action="https://formsubmit.co/shopnline330@gmail.com"
+                  method="POST"
+                  className="space-y-4"
+                  onSubmit={handleFormSubmit}
+                >
+                  <input type="hidden" name="_captcha" value="false" />
+                  <div>
+                    <Input
+                      name="name"
+                      placeholder="Your Name"
+                      required
+                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-[#FFC300]"
+                    />
+                  </div>
+                  <div>
+                    <Input
+                      type="email"
+                      name="email"
+                      placeholder="Your Email"
+                      required
+                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-[#FFC300]"
+                    />
+                  </div>
+                  <div>
+                    <Textarea
+                      name="message"
+                      placeholder="Your Message"
+                      required
+                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-[#FFC300] min-h-[150px]"
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    className="bg-[#FFC300] text-[#1E1E1E] hover:bg-[#FFD43B] hover:text-[#1E1E1E] w-full"
+                  >
+                    Send Message
+                  </Button>
+                </form>
+              )}
             </div>
           </div>
 
