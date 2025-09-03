@@ -231,6 +231,10 @@ const Home = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
+                  "/brands/topryz-brand.png",
+                  "/brands/vento-brand.png",
+                  "/brands/redkoar-brand.png",
+                  "/brands/be-masculine-brand.png",
                   "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360789/spotbook_1_oip5et.webp",
                   "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756359810/Black_White_Yellow_Simple_Initial_Name_Logo_wk8ek6.png",
                   "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360789/spotbook_3_psj0gm.jpg",
@@ -467,12 +471,13 @@ const Home = () => {
             <span className="absolute -bottom-2 left-0 w-full h-1 bg-[#FFC300]"></span>
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Case Study 1 */}
             <Card className="overflow-hidden border-none shadow-lg">
               <Carousel className="w-full">
                 <CarouselContent>
                   {[
+                    "/brands/redkoar-brand.png",
                     "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360122/Redkoar_logo_u3w0fi.png",
                     "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360120/Redkoar_1_usa6lw.png",
                     "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360121/Redkoar_2_w99rq0.png",
@@ -580,6 +585,7 @@ const Home = () => {
                         <h4 className="font-semibold mb-3">Gallery</h4>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                           {[
+                            "/brands/redkoar-brand.png",
                             "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360122/Redkoar_logo_u3w0fi.png",
                             "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360120/Redkoar_1_usa6lw.png",
                             "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360121/Redkoar_2_w99rq0.png",
@@ -611,6 +617,10 @@ const Home = () => {
                 <CarouselContent>
                   {[
                     {
+                      src: "/brands/be-masculine-brand.png",
+                      aspect: "video",
+                    },
+                    {
                       src: "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360086/masculine_1_seawrk.png",
                       aspect: "video",
                     },
@@ -624,9 +634,7 @@ const Home = () => {
                     },
                   ].map((item, i) => (
                     <CarouselItem key={`bm-img-${i}`}>
-                      <div
-                        className={`${item.aspect === "square" ? "aspect-square" : "aspect-video"} w-full overflow-hidden bg-[#F9F9F9]`}
-                      >
+                      <div className="aspect-video w-full overflow-hidden bg-[#F9F9F9]">
                         <img
                           src={item.src}
                           alt={`Be Masculine image ${i + 1}`}
@@ -732,6 +740,10 @@ const Home = () => {
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                           {[
+                            {
+                              src: "/brands/be-masculine-brand.png",
+                              aspect: "video",
+                            },
                             {
                               src: "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360086/masculine_1_seawrk.png",
                               aspect: "video",
