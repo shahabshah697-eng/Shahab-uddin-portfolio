@@ -45,6 +45,15 @@ const Home = () => {
     }
   };
 
+  const logoTitles = [
+    "Topryz Project Brand Identity",
+    "Vento Project",
+    "Redkoar Project Brand Identity",
+    "Be Masculine Project Brand Identity",
+    "Spotbook Project Logo",
+    "Shay Haq Project Logo",
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -52,7 +61,7 @@ const Home = () => {
         <div className="w-full md:w-1/2 bg-white flex items-center justify-center p-8">
           <div className="max-w-lg">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E1E1E] mb-4">
-              Hello, I'm Shahab Uddin —{" "}
+              Hello, I&apos;m Shahab Uddin —{" "}
               <span className="text-[#FFC300]">Graphic Designer</span>
             </h1>
             <p className="text-lg text-[#2B2B2B] mb-6">
@@ -102,7 +111,7 @@ const Home = () => {
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
           >
-            <div className="rounded-full overflow-hidden h-64 w-64 md:h-80 md:w-80 bg-[#FFE680] shadow-inner">
+            <div className="rounded-full overflow-hidden h-80 w-80 md:h-96 md:w-96 bg-[#FFE680] shadow-inner">
               <img
                 src="https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756359843/Image_1_xgpnth.png"
                 alt="Shahab Uddin"
@@ -129,37 +138,37 @@ const Home = () => {
 
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <motion.div
-              className="md:w-1/3"
+              className="md:w-1/2"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <div className="rounded-2xl overflow-hidden">
+              <div className="rounded-2xl overflow-hidden max-h-[340px] sm:max-h-[380px] md:max-h-[420px]">
                 <img
                   src="https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756359835/Graphic_Designer_eyy6n4.png"
                   alt="Shahab Uddin workspace"
-                  className="w-full h-auto"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </motion.div>
 
             <motion.div
-              className="md:w-2/3"
+              className="md:w-1/2"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
             >
               <p className="text-lg mb-6 text-[#2B2B2B]">
-                I'm Shahab Uddin, a passionate graphic designer with 3 years of
-                experience crafting impactful visuals. I spent 2 years at Design
-                Dreamscape, building a strong foundation in branding, logo
-                design, and digital visuals.
+                I&apos;m Shahab Uddin, a passionate graphic designer with 3
+                years of experience crafting impactful visuals. I spent 2 years
+                at Design Dreamscape, building a strong foundation in branding,
+                logo design, and digital visuals.
               </p>
               <p className="text-lg mb-8 text-[#2B2B2B]">
-                Over time, I've expanded into video editing, thumbnails, and
-                visual storytelling. I love turning ideas into identities,
+                Over time, I&apos;ve expanded into video editing, thumbnails,
+                and visual storytelling. I love turning ideas into identities,
                 campaigns, and experiences that connect.
               </p>
 
@@ -231,7 +240,7 @@ const Home = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
-                  "/brands/topryz-brand.png",
+                  "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1757005085/Topryz_Brand_wlkiin.png",
                   "/brands/vento-brand.png",
                   "/brands/redkoar-brand.png",
                   "/brands/be-masculine-brand.png",
@@ -259,7 +268,7 @@ const Home = () => {
                     </div>
                     <CardContent className="p-4">
                       <h3 className="font-semibold mb-2">
-                        Brand Identity {idx + 1}
+                        {logoTitles[idx] ?? `Brand Identity ${idx + 1}`}
                       </h3>
                       <p className="text-sm text-[#2B2B2B]">
                         Logo design and brand identity for client project.
@@ -481,6 +490,7 @@ const Home = () => {
                     "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360122/Redkoar_logo_u3w0fi.png",
                     "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360120/Redkoar_1_usa6lw.png",
                     "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360121/Redkoar_2_w99rq0.png",
+                    "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1757005260/Redkoar_Brand_2_uh8k48.png",
                     "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
                     "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=80",
                   ].map((src, i) => (
@@ -589,6 +599,7 @@ const Home = () => {
                             "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360122/Redkoar_logo_u3w0fi.png",
                             "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360120/Redkoar_1_usa6lw.png",
                             "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1756360121/Redkoar_2_w99rq0.png",
+                            "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1757005260/Redkoar_Brand_2_uh8k48.png",
                             "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",
                             "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80",
                           ].map((src, i) => (
@@ -775,6 +786,168 @@ const Home = () => {
                 </Dialog>
               </CardContent>
             </Card>
+
+            {/* Case Study 3 */}
+            <Card className="overflow-hidden border-none shadow-lg">
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {[
+                    "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1757005085/Topryz_Brand_wlkiin.png",
+                    "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1757005263/Topryz_Brand_2_isgnvr.png",
+                  ].map((src, i) => (
+                    <CarouselItem key={`topryz-${i}`}>
+                      <div className="aspect-video w-full overflow-hidden bg-[#F9F9F9]">
+                        <img
+                          src={src}
+                          alt={`Topryz image ${i + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold mb-1">
+                  Topryz — eCommerce Brand Identity
+                </h3>
+                <p className="text-[#2B2B2B] italic mb-3">
+                  &quot;Top Deals, Top Trust.&quot;
+                </p>
+                <p className="text-[#2B2B2B] mb-4">
+                  I created a complete brand identity kit for Topryz, an
+                  emerging eCommerce brand. The goal was to design a modern,
+                  trustworthy, and professional brand presence that communicates
+                  reliability and appeals to online shoppers.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["Illustrator", "Photoshop", "Canva"].map((tool) => (
+                    <Badge key={tool} className="bg-[#FFC300] text-[#1E1E1E]">
+                      {tool}
+                    </Badge>
+                  ))}
+                </div>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button className="bg-[#1E1E1E] hover:bg-[#FFC300] hover:text-[#1E1E1E]">
+                      View Project
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-3xl max-h-[85vh] overflow-y-auto">
+                    <DialogHeader>
+                      <DialogTitle>
+                        Topryz — eCommerce Brand Identity Design
+                      </DialogTitle>
+                      <DialogDescription>
+                        A bold and trustworthy identity built for modern online
+                        retail.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="font-semibold mb-2">Tagline</h4>
+                        <p className="text-sm text-[#2B2B2B]">
+                          &quot;Top Deals, Top Trust.&quot;
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="font-semibold mb-2">Overview</h4>
+                        <p className="text-sm text-[#2B2B2B]">
+                          The Topryz Brand Kit establishes a confident,
+                          professional look and feel for a growing eCommerce
+                          business. The visual language focuses on clarity,
+                          reliability, and consistency across digital
+                          touchpoints.
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <h5 className="font-semibold mb-1">Role</h5>
+                          <p className="text-sm text-[#2B2B2B]">
+                            Brand Designer
+                          </p>
+                        </div>
+                        <div>
+                          <h5 className="font-semibold mb-1">Timeline</h5>
+                          <p className="text-sm text-[#2B2B2B]">
+                            3 weeks — Identity & System
+                          </p>
+                        </div>
+                        <div>
+                          <h5 className="font-semibold mb-1">Color Palette</h5>
+                          <p className="text-sm text-[#2B2B2B]">
+                            Neon green + deep blue — innovation and credibility
+                          </p>
+                        </div>
+                        <div>
+                          <h5 className="font-semibold mb-1">Typography</h5>
+                          <p className="text-sm text-[#2B2B2B]">
+                            Professional, highly readable system
+                          </p>
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4 className="font-semibold mb-2">Deliverables</h4>
+                        <ul className="list-disc pl-5 text-sm text-[#2B2B2B] space-y-1">
+                          <li>Logo Design — clean, bold, and modern</li>
+                          <li>Brand Color Palette — neon green + deep blue</li>
+                          <li>Typography System — for digital and print</li>
+                          <li>
+                            Business Collaterals — business cards, website
+                            favicon, social media mockups, banner/flag design
+                          </li>
+                          <li>
+                            Brand Pattern — repeating pattern derived from the
+                            logo mark
+                          </li>
+                          <li>
+                            Visual Mockups — web, app, merchandise, and
+                            marketing material
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h4 className="font-semibold mb-2">Outcome</h4>
+                        <p className="text-sm text-[#2B2B2B]">
+                          The Topryz Brand Kit positioned the company as a
+                          reliable eCommerce brand with strong visual
+                          consistency. The tagline &quot;Top Deals, Top
+                          Trust&quot; anchors the messaging and reinforces value
+                          and credibility.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 className="font-semibold mb-3">Gallery</h4>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                          {[
+                            "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1757005085/Topryz_Brand_wlkiin.png",
+                            "https://res.cloudinary.com/dv5kwhrj9/image/upload/v1757005263/Topryz_Brand_2_isgnvr.png",
+                          ].map((src, idx) => (
+                            <div
+                              key={`topryz-g-${idx}`}
+                              className="aspect-video overflow-hidden rounded-md bg-[#F9F9F9]"
+                            >
+                              <img
+                                src={src}
+                                alt={`Topryz gallery ${idx + 1}`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -783,7 +956,7 @@ const Home = () => {
       <section className="py-20 px-8 bg-[#1E1E1E] text-white" id="contact">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            Let's Work Together.
+            Let&apos;s Work Together.
           </h2>
           <p className="text-center text-lg mb-12 max-w-2xl mx-auto">
             Available for freelance collaborations and design projects
