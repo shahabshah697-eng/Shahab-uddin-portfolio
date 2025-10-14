@@ -329,6 +329,7 @@ const Home = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                 {[
+                  "https://player.cloudinary.com/embed/?cloud_name=dv5kwhrj9&public_id=New_Updated_xylru5&profile=cld-default",
                   "https://res.cloudinary.com/dv5kwhrj9/video/upload/v1756575514/Captains_shield_bwqfee.mp4",
                   "https://res.cloudinary.com/dv5kwhrj9/video/upload/v1756575586/hulk_before_vs_After_ctxjgb.mp4",
                   "https://res.cloudinary.com/dv5kwhrj9/video/upload/v1756575670/Achieve_anything_kxprfv.mp4",
@@ -338,19 +339,35 @@ const Home = () => {
                     className="overflow-hidden hover:shadow-lg transition-shadow"
                   >
                     <div className="aspect-[9/16] w-full overflow-hidden bg-[#F9F9F9]">
-                      <video
-                        src={src}
-                        controls
-                        className="w-full h-full object-cover"
-                        preload="metadata"
-                      />
+                      {src.includes("player.cloudinary.com") ? (
+                        <iframe
+                          src={src}
+                          title={`Short video ${idx + 1}`}
+                          className="w-full h-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allowFullScreen
+                        ></iframe>
+                      ) : (
+                        <video
+                          src={src}
+                          controls
+                          className="w-full h-full object-cover"
+                          preload="metadata"
+                        />
+                      )}
                     </div>
                     <CardContent className="p-4">
+                      {idx === 0 ? (
+                        <Badge className="bg-[#FFC300] text-[#1E1E1E] mb-2">Primary</Badge>
+                      ) : null}
                       <h3 className="font-semibold mb-2">
-                        Short Video {idx + 1}
+                        {idx === 0 ? "Cinematic Short" : `Short Video ${idx + 1}`}
                       </h3>
                       <p className="text-sm text-[#2B2B2B]">
-                        Edited for clients.
+                        {idx === 0
+                          ? "Cinematic Short – Visual Storytelling Video edited for Client."
+                          : "Edited for clients."}
                       </p>
                     </CardContent>
                   </Card>
